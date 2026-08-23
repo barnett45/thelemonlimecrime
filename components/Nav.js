@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Wordmark from '@components/Wordmark'
 import styles from './Nav.module.css'
 
 export default function Nav() {
@@ -14,7 +15,7 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${stuck ? styles.stuck : ''}`}>
       <a className={styles.brand} href="#top">
-        Lemon <span className={styles.slash}>//</span> Lime
+        <Wordmark size="xs" />
       </a>
       <div className={styles.links}>
         <a className={styles.link} href="#getaway">

@@ -20,16 +20,16 @@
 
 .optional {
   letter-spacing: 0.14em;
-  color: rgba(180, 200, 168, 0.42);
+  color: rgba(190, 190, 152, 0.42);
 }
 
 .control {
   width: 100%;
   padding: 0.95rem 1rem;
   border-radius: 2px;
-  border: 1px solid rgba(180, 220, 150, 0.16);
+  border: 1px solid rgba(168, 201, 28, 0.16);
   background: var(--bg-2);
-  color: #eef6e5;
+  color: #f2f2dd;
   font-size: 0.95rem;
   line-height: 1.3;
   transition: border-color 0.28s var(--ease), box-shadow 0.28s var(--ease),
@@ -38,20 +38,20 @@
 }
 
 .control::placeholder {
-  color: rgba(170, 190, 160, 0.36);
+  color: rgba(182, 183, 146, 0.36);
 }
 
 .control:hover {
-  border-color: rgba(180, 220, 150, 0.3);
+  border-color: rgba(168, 201, 28, 0.3);
 }
 
 /* the toxic glow on the active field */
 .control:focus {
   outline: none;
-  background: #171e13;
+  background: #1b200d;
   border-color: var(--toxic);
-  box-shadow: 0 0 0 1px var(--toxic), 0 0 22px rgba(57, 255, 20, 0.28),
-    inset 0 0 18px rgba(57, 255, 20, 0.07);
+  box-shadow: 0 0 0 1px var(--toxic), 0 0 22px rgba(189, 224, 67, 0.28),
+    inset 0 0 18px rgba(189, 224, 67, 0.07);
 }
 
 .field:focus-within .label {
@@ -113,9 +113,8 @@ select.control {
   border: none;
   border-radius: 2px;
   background: var(--acid);
-  color: #0b0e07;
+  color: #1c1e08;
   font-family: var(--display);
-  font-weight: 700;
   font-size: 0.84rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -126,14 +125,14 @@ select.control {
 
 .submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  background: #fbff5c;
-  box-shadow: 0 14px 36px rgba(242, 255, 0, 0.24);
+  background: #f2ef78;
+  box-shadow: 0 14px 36px rgba(233, 202, 26, 0.24);
 }
 
 .submit:disabled {
   cursor: progress;
-  background: #4d5720;
-  color: rgba(255, 255, 255, 0.6);
+  background: var(--olive);
+  color: rgba(247, 245, 228, 0.55);
 }
 
 .spinner {
@@ -170,9 +169,9 @@ select.control {
   flex-direction: column;
   gap: 0.9rem;
   padding: clamp(1.6rem, 4vw, 2.6rem);
-  border: 1px solid rgba(57, 255, 20, 0.35);
-  background: linear-gradient(180deg, rgba(57, 255, 20, 0.08), rgba(57, 255, 20, 0.02));
-  box-shadow: inset 0 0 60px rgba(57, 255, 20, 0.06);
+  border: 1px solid rgba(189, 224, 67, 0.35);
+  background: linear-gradient(180deg, rgba(189, 224, 67, 0.08), rgba(189, 224, 67, 0.02));
+  box-shadow: inset 0 0 60px rgba(189, 224, 67, 0.06);
   animation: doneIn 0.6s var(--ease);
 }
 
@@ -192,9 +191,9 @@ select.control {
   font-family: var(--display);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   line-height: 1;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.012em;
   text-transform: uppercase;
-  color: #f3faea;
+  color: #f7f5e4;
   margin: 0;
 }
 
@@ -210,7 +209,7 @@ select.control {
   align-self: flex-start;
   margin-top: 0.3rem;
   padding: 0.6rem 1.1rem;
-  border: 1px solid rgba(57, 255, 20, 0.4);
+  border: 1px solid rgba(189, 224, 67, 0.4);
   background: transparent;
   color: var(--toxic);
   font-family: var(--display);
@@ -223,5 +222,5 @@ select.control {
 
 .again:hover {
   background: var(--toxic);
-  color: #06210a;
+  color: #141709;
 }

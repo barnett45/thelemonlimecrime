@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   padding: clamp(5rem, 13vh, 9rem) 0 clamp(5rem, 12vh, 8rem);
-  background: linear-gradient(180deg, #0a0f08 0%, #0b100a 55%, #090c08 100%);
+  background: linear-gradient(180deg, #0b0e05 0%, #0c1006 55%, #0a0c05 100%);
   border-top: 1px solid var(--line);
 }
 
@@ -28,8 +28,9 @@
 }
 
 .rule {
-  height: 1px;
-  background: linear-gradient(90deg, var(--toxic), rgba(57, 255, 20, 0) 62%);
+  height: 2px;
+  /* the logo's gold rule, run out as a section underline */
+  background: linear-gradient(90deg, var(--acid-deep), rgba(233, 202, 26, 0) 62%);
   margin: 1.2rem 0 0;
 }
 
@@ -44,8 +45,8 @@
   display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid rgba(160, 220, 120, 0.1);
-  background: #070a06;
+  border: 1px solid var(--olive);
+  background: #080a04;
   cursor: pointer;
   text-align: left;
   padding: 0;
@@ -73,7 +74,7 @@
 
 .tile:hover,
 .tile:focus-visible {
-  border-color: rgba(57, 255, 20, 0.55);
+  border-color: var(--toxic-deep);
 }
 
 .art {
@@ -107,7 +108,7 @@
 .shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(4, 6, 4, 0.1) 0%, rgba(4, 6, 4, 0.15) 40%, rgba(4, 6, 4, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(7, 8, 3, 0.1) 0%, rgba(7, 8, 3, 0.15) 40%, rgba(7, 8, 3, 0.9) 100%);
   transition: opacity 0.6s var(--ease);
 }
 
@@ -137,9 +138,9 @@
   font-family: var(--display);
   font-size: clamp(0.95rem, 1.5vw, 1.28rem);
   line-height: 1.02;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.014em;
   text-transform: uppercase;
-  color: #f3faea;
+  color: #f7f5e4;
   margin: 0;
 }
 
@@ -166,10 +167,10 @@
   font-family: var(--display);
   font-size: 0.54rem;
   letter-spacing: 0.24em;
-  color: rgba(230, 245, 220, 0.5);
+  color: rgba(233, 233, 200, 0.5);
   padding: 0.24rem 0.45rem;
-  border: 1px solid rgba(200, 240, 170, 0.2);
-  background: rgba(6, 9, 5, 0.45);
+  border: 1px solid rgba(189, 224, 67, 0.2);
+  background: rgba(7, 9, 3, 0.45);
   backdrop-filter: blur(6px);
 }
 

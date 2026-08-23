@@ -1,15 +1,5 @@
+import Wordmark from '@components/Wordmark'
 import styles from './Footer.module.css'
-
-function Glyph() {
-  return (
-    <svg width="38" height="26" viewBox="0 0 76 52" aria-hidden="true">
-      <path d="M6 40c0-16 8-26 22-28h30c8 6 12 16 12 28z" fill="#ffcf0a" />
-      <path d="M14 12h48l4 8H12z" fill="#101310" />
-      <circle cx="18" cy="42" r="8" fill="#101310" stroke="#39ff14" strokeWidth="2" />
-      <circle cx="58" cy="42" r="9" fill="#101310" stroke="#39ff14" strokeWidth="2" />
-    </svg>
-  )
-}
 
 const INDEX = [
   ['The chase', '#getaway'],
@@ -36,13 +26,8 @@ export default function Footer() {
           </p>
 
           <div className={styles.brand}>
-            <span className={styles.mark}>
-              <Glyph />
-              <span className={styles.markName}>
-                Lemon Lime Crime
-                <span className={styles.markSub}>Est. 2019 · Arch 14</span>
-              </span>
-            </span>
+            <Wordmark size="sm" className={styles.mark} />
+            <p className={styles.markSub}>Est. 2019 · Arch 14</p>
             <p className={styles.brandCopy}>
               A three-wheeled picture about two families and the fruit they will not share.
             </p>

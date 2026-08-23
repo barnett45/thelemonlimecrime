@@ -4,9 +4,9 @@
  */
 
 const TONES = {
-  lime: { sky: ['#0f1a0b', '#050803'], key: '#39ff14', fill: '#040603', haze: 'rgba(57,255,20,.34)' },
-  lemon: { sky: ['#1a1a06', '#060602'], key: '#f2ff00', fill: '#050502', haze: 'rgba(242,255,0,.3)' },
-  dusk: { sky: ['#0a1116', '#040604'], key: '#8bff5a', fill: '#03050a', haze: 'rgba(120,255,90,.24)' },
+  lime: { sky: ['#111a07', '#050803'], key: '#bde043', fill: '#050602', haze: 'rgba(189,224,67,.34)' },
+  lemon: { sky: ['#1a1a06', '#060602'], key: '#e8e542', fill: '#060602', haze: 'rgba(233,202,26,.3)' },
+  dusk: { sky: ['#0a0f0a', '#050602'], key: '#c3e055', fill: '#05060a', haze: 'rgba(189,224,67,.24)' },
 }
 
 function Frame({ tone, id, children }) {
@@ -40,9 +40,9 @@ const SCENES = {
       <ellipse cx="300" cy="212" rx="66" ry="80" fill={t.fill} />
       <path d="M234 214c-6-58 26-98 66-98s72 40 66 98" fill="none" stroke={t.key} strokeWidth="4" opacity=".8" />
       <path d="M366 240c30 16 44 44 44 44" stroke={t.key} strokeWidth="3" opacity=".5" fill="none" />
-      <rect x="318" y="252" width="58" height="9" rx="4" fill="#2a2f22" />
+      <rect x="318" y="252" width="58" height="9" rx="4" fill="#2c310f" />
       <circle cx="380" cy="256" r="7" fill={t.key} />
-      <path d="M386 246c18-30 6-58 22-84" stroke="rgba(220,240,210,.28)" strokeWidth="5" fill="none" strokeLinecap="round" />
+      <path d="M386 246c18-30 6-58 22-84" stroke="rgba(240,244,205,.28)" strokeWidth="5" fill="none" strokeLinecap="round" />
       <path d="M262 300l38 42 38-42" fill="none" stroke={t.key} strokeWidth="3" opacity=".55" />
     </>
   ),
@@ -61,7 +61,7 @@ const SCENES = {
   ),
   street: (t, id) => (
     <>
-      <rect y="250" width="600" height="170" fill="#04060a" />
+      <rect y="250" width="600" height="170" fill="#050603" />
       <path
         d="M0 250V150h48v-40h30v40h44v-70h40v70h58v-26h38v26h64v-52h40v52h72v-34h46v34h64v-58h34v58h22v100z"
         fill={t.fill}
@@ -73,11 +73,11 @@ const SCENES = {
         <rect x="486" y="130" width="6" height="9" />
       </g>
       <ellipse cx="300" cy="300" rx="200" ry="70" fill={`url(#glow-${id})`} />
-      <path d="M244 300h112l24 44H220z" fill="#0a0d08" />
-      <circle cx="252" cy="344" r="15" fill="#0d1109" />
-      <circle cx="352" cy="344" r="15" fill="#0d1109" />
+      <path d="M244 300h112l24 44H220z" fill="#0a0c05" />
+      <circle cx="252" cy="344" r="15" fill="#0e1106" />
+      <circle cx="352" cy="344" r="15" fill="#0e1106" />
       <path d="M232 292h136l-10-34h-116z" fill={t.key} opacity=".22" />
-      <circle cx="238" cy="308" r="9" fill="#fffbe0" />
+      <circle cx="238" cy="308" r="9" fill="#faf6dd" />
       <path d="M238 308l-190 60 190 26z" fill={t.key} opacity=".16" filter={`url(#blur-${id})`} />
       <g stroke={t.key} strokeWidth="2" opacity=".2">
         <path d="M0 384h600M0 402h600" />
@@ -86,17 +86,17 @@ const SCENES = {
   ),
   parlor: (t, id) => (
     <>
-      <path d="M300 0v96" stroke="#2b3126" strokeWidth="4" />
-      <path d="M300 96l-96 82h192z" fill="#171b14" />
+      <path d="M300 0v96" stroke="#2a300c" strokeWidth="4" />
+      <path d="M300 96l-96 82h192z" fill="#191c0b" />
       <ellipse cx="300" cy="188" rx="34" ry="12" fill={t.key} opacity=".9" />
       <path d="M300 190l-176 230h352z" fill={`url(#glow-${id})`} opacity=".8" />
-      <rect x="120" y="330" width="360" height="10" rx="4" fill="#0b0e08" />
+      <rect x="120" y="330" width="360" height="10" rx="4" fill="#0c0e05" />
       <ellipse cx="196" cy="292" rx="42" ry="50" fill={t.fill} />
       <path d="M136 330c8-40 32-56 60-56s52 16 60 56z" fill={t.fill} />
       <ellipse cx="410" cy="286" rx="38" ry="46" fill={t.fill} />
       <path d="M356 330c6-38 28-52 54-52s48 14 54 52z" fill={t.fill} />
       <path d="M238 292c14 6 22 4 30 0" stroke={t.key} strokeWidth="3" fill="none" opacity=".6" />
-      <rect x="272" y="312" width="56" height="18" rx="3" fill="#0e120b" stroke={t.key} strokeWidth="2" opacity=".8" />
+      <rect x="272" y="312" width="56" height="18" rx="3" fill="#0f1207" stroke={t.key} strokeWidth="2" opacity=".8" />
     </>
   ),
   chase: (t, id) => (
@@ -109,12 +109,12 @@ const SCENES = {
       <ellipse cx="330" cy="300" rx="230" ry="90" fill={`url(#glow-${id})`} />
       <path d="M212 306c0-44 22-74 62-84l150-6c34 12 50 44 50 90z" fill={t.fill} />
       <path d="M232 218h228" stroke={t.fill} strokeWidth="14" strokeLinecap="round" />
-      <circle cx="262" cy="318" r="30" fill="#080b06" />
-      <circle cx="430" cy="318" r="34" fill="#080b06" />
+      <circle cx="262" cy="318" r="30" fill="#090b04" />
+      <circle cx="430" cy="318" r="34" fill="#090b04" />
       <circle cx="262" cy="318" r="12" fill={t.key} opacity=".5" />
       <circle cx="430" cy="318" r="13" fill={t.key} opacity=".5" />
       <path d="M478 268l104-16-104 30z" fill={t.key} opacity=".5" />
-      <path d="M196 262l-160 22 160 6z" fill="#fffbe0" opacity=".35" filter={`url(#blur-${id})`} />
+      <path d="M196 262l-160 22 160 6z" fill="#faf6dd" opacity=".35" filter={`url(#blur-${id})`} />
     </>
   ),
   market: (t, id) => (
@@ -130,16 +130,16 @@ const SCENES = {
           </g>
         ))}
       </g>
-      <path d="M180 420c0-44 18-64 52-64s52 20 52 64z" fill="#04060a" />
-      <path d="M340 420c0-38 14-54 44-54s44 16 44 54z" fill="#04060a" />
+      <path d="M180 420c0-44 18-64 52-64s52 20 52 64z" fill="#050603" />
+      <path d="M340 420c0-38 14-54 44-54s44 16 44 54z" fill="#050603" />
     </>
   ),
   wheel: (t, id) => (
     <>
       <circle cx="300" cy="220" r="220" fill={`url(#glow-${id})`} opacity=".65" />
-      <circle cx="300" cy="230" r="160" fill="#0a0d08" />
-      <circle cx="300" cy="230" r="112" fill="#12160f" />
-      <circle cx="300" cy="230" r="70" fill="#1a2015" />
+      <circle cx="300" cy="230" r="160" fill="#0a0c05" />
+      <circle cx="300" cy="230" r="112" fill="#141708" />
+      <circle cx="300" cy="230" r="70" fill="#1c210c" />
       {[0, 60, 120, 180, 240, 300].map((a) => (
         <line
           key={a}
@@ -147,23 +147,23 @@ const SCENES = {
           y1="230"
           x2={300 + Math.cos((a * Math.PI) / 180) * 104}
           y2={230 + Math.sin((a * Math.PI) / 180) * 104}
-          stroke="#39412f"
+          stroke="#3c4415"
           strokeWidth="12"
           strokeLinecap="round"
         />
       ))}
       <circle cx="300" cy="230" r="22" fill={t.key} />
       <path d="M140 230a160 160 0 0 1 90-144" stroke={t.key} strokeWidth="7" fill="none" strokeLinecap="round" opacity=".85" />
-      <rect y="392" width="600" height="28" fill="#04060a" />
+      <rect y="392" width="600" height="28" fill="#050603" />
     </>
   ),
   ledger: (t, id) => (
     <>
-      <rect width="600" height="420" fill="#060903" />
+      <rect width="600" height="420" fill="#070903" />
       <ellipse cx="300" cy="210" rx="240" ry="150" fill={`url(#glow-${id})`} opacity=".5" />
       <g transform="rotate(-7 300 210)">
-        <rect x="150" y="90" width="300" height="240" rx="4" fill="#e9eedd" opacity=".9" />
-        <g stroke="#1c2116" strokeWidth="4" opacity=".5">
+        <rect x="150" y="90" width="300" height="240" rx="4" fill="#e7e6ce" opacity=".9" />
+        <g stroke="#1e230e" strokeWidth="4" opacity=".5">
           {[130, 158, 186, 214, 242, 270].map((y) => (
             <path key={y} d={`M180 ${y}h${120 + ((y * 7) % 130)}`} />
           ))}
@@ -175,7 +175,7 @@ const SCENES = {
   ),
   rooftop: (t, id) => (
     <>
-      <circle cx="470" cy="110" r="56" fill="#e6f2d8" opacity=".85" />
+      <circle cx="470" cy="110" r="56" fill="#e7e6ce" opacity=".85" />
       <circle cx="470" cy="110" r="120" fill={`url(#glow-${id})`} />
       <path d="M0 330h600v90H0z" fill={t.fill} />
       <path d="M0 330l120-14 96 14 140-22 128 22 116-10" fill="none" stroke={t.key} strokeWidth="3" opacity=".5" />

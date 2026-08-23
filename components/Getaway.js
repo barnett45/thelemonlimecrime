@@ -97,16 +97,16 @@ export default function Getaway() {
 
             <svg className={`${styles.skyline} ${styles.skylineBack}`} viewBox="0 0 1600 320" preserveAspectRatio="none">
               <path
-                fill="#0b1109"
+                fill="#0c1006"
                 d="M0 320V196h84v-52h62v52h96v-84h74v84h122v-38h88v38h108v-70h70v70h134v-46h96v46h118v-92h72v92h96v-40h80v40h100v-64h56v64h44v124z"
               />
             </svg>
             <svg className={styles.skyline} viewBox="0 0 1600 340" preserveAspectRatio="none">
               <path
-                fill="#050804"
+                fill="#060803"
                 d="M0 340V214h120v-64h70v64h84v-120h96v120h130v-46h78v46h96v-92h86v92h140v-58h92v58h118v-110h74v110h92v-42h94v42h130v-72h60v72h40v126z"
               />
-              <g fill="#f2ff00" opacity=".55">
+              <g fill="#e8e542" opacity=".55">
                 <rect x="140" y="176" width="7" height="11" />
                 <rect x="162" y="200" width="7" height="11" />
                 <rect x="322" y="132" width="7" height="11" />
@@ -115,7 +115,7 @@ export default function Getaway() {
                 <rect x="1044" y="150" width="7" height="11" />
                 <rect x="1298" y="192" width="7" height="11" />
               </g>
-              <g fill="#39ff14" opacity=".5">
+              <g fill="#bde043" opacity=".5">
                 <rect x="196" y="150" width="7" height="11" />
                 <rect x="742" y="168" width="7" height="11" />
                 <rect x="1080" y="186" width="7" height="11" />

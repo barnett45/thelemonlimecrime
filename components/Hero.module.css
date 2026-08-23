@@ -20,20 +20,30 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 17vh;
-  gap: 0.02em;
+  padding-top: 15vh;
   font-family: var(--display);
-  font-weight: 700;
   text-transform: uppercase;
-  line-height: 0.76;
-  letter-spacing: -0.055em;
-  font-size: clamp(3.1rem, 12.5vw, 12.5rem);
+  line-height: 0.82;
+  /* Anton is condensed already; the logo sets its caps a touch open, not tight */
+  letter-spacing: 0.012em;
+  font-size: clamp(2.7rem, 11vw, 11rem);
   white-space: nowrap;
   user-select: none;
 }
 
+/* the logo's gold rule, scaled up and dimmed for the night version */
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.03em;
+  padding: 0.3em 0.46em 0.2em;
+  border: 0.05em solid rgba(233, 202, 26, 0.4);
+  box-shadow: inset 0 0 0 0.022em rgba(233, 202, 26, 0.12);
+}
+
 .line {
-  background: linear-gradient(178deg, #f6ffe4 0%, #b9c9a6 38%, #4a5741 78%, #2b3327 100%);
+  background: linear-gradient(178deg, #f7f5e4 0%, #ded9b4 34%, #9c9a68 72%, #6e6d42 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -45,12 +55,11 @@
 
 .line:nth-child(2) {
   animation-delay: 0.12s;
-  letter-spacing: -0.062em;
 }
 
 .line em {
   font-style: normal;
-  background: linear-gradient(178deg, #f2ff00 0%, #b7c400 60%, #4c5300 100%);
+  background: linear-gradient(178deg, #d5ec72 0%, #a8c91c 58%, #4d5b12 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -66,7 +75,7 @@
   width: min(64vw, 900px);
   aspect-ratio: 2.7 / 1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(4, 6, 4, 0.78), rgba(4, 6, 4, 0) 76%);
+  background: radial-gradient(closest-side, rgba(7, 8, 3, 0.78), rgba(7, 8, 3, 0) 76%);
   pointer-events: none;
 }
 
@@ -95,7 +104,7 @@
   inset: auto 0 0 0;
   height: 30%;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(9, 12, 8, 0) 0%, rgba(9, 12, 8, 0.72) 58%, rgba(9, 12, 8, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(10, 12, 5, 0) 0%, rgba(10, 12, 5, 0.72) 58%, rgba(10, 12, 5, 0.95) 100%);
 }
 
 /* ---------- layer 4: chrome ---------- */
@@ -119,7 +128,7 @@
   position: relative;
   width: 74px;
   height: 1px;
-  background: rgba(160, 220, 120, 0.24);
+  background: rgba(168, 201, 28, 0.24);
   overflow: hidden;
 }
 
@@ -139,9 +148,9 @@
   bottom: clamp(1.6rem, 5vh, 3.2rem);
   width: min(360px, 78vw);
   padding: 1.5rem 1.5rem 1.3rem;
-  border: 1px solid rgba(200, 255, 160, 0.16);
+  border: 1px solid rgba(189, 224, 67, 0.16);
   border-radius: 4px;
-  background: rgba(18, 24, 15, 0.42);
+  background: rgba(20, 24, 10, 0.42);
   backdrop-filter: blur(22px) saturate(1.3);
   -webkit-backdrop-filter: blur(22px) saturate(1.3);
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -173,9 +182,9 @@
   font-family: var(--display);
   font-size: clamp(1.35rem, 2.1vw, 1.75rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
-  color: #f4fbec;
+  color: var(--cream);
   margin: 0 0 0.55rem;
 }
 
@@ -196,21 +205,20 @@
   border: none;
   border-radius: 2px;
   background: var(--acid);
-  color: #0b0e07;
+  color: #171a08;
   font-family: var(--display);
-  font-weight: 700;
   font-size: 0.86rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 0 0 rgba(242, 255, 0, 0.5);
+  box-shadow: 0 0 0 rgba(233, 202, 26, 0.5);
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
 }
 
 .book:hover {
   transform: translateY(-2px);
-  background: #fbff5c;
-  box-shadow: 0 12px 34px rgba(242, 255, 0, 0.28);
+  background: #f2ef78;
+  box-shadow: 0 12px 34px rgba(233, 202, 26, 0.28);
 }
 
 .book:active {

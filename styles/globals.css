@@ -9,27 +9,33 @@
 }
 
 :root {
-  /* deep dark grey/black, tinted toxic green — never pure black */
-  --bg-0: #090c08;
-  --bg-1: #0d110b;
-  --bg-2: #141a11;
-  --bg-3: #1b2317;
+  /* olive-black pulled off the crest's dark rim — never pure black */
+  --bg-0: #0a0c05;
+  --bg-1: #0f1207;
+  --bg-2: #161a0c;
+  --bg-3: #1f2411;
 
-  --acid: #f2ff00;        /* piercing neon yellow */
-  --acid-dim: #c3cf12;
-  --toxic: #39ff14;       /* toxic glowing green */
-  --toxic-dim: #1f8f16;
+  /* straight off the logo: crest lemon, gold rule, crest lime, wordmark lime */
+  --acid: #e8e542;        /* the crest's lemon half */
+  --acid-deep: #e9ca1a;   /* the gold border rule */
+  --acid-dim: #b4b132;
+  --toxic: #bde043;       /* the crest's lime half */
+  --toxic-deep: #a8c91c;  /* the wordmark lime */
+  --toxic-dim: #7d9424;
 
-  --paint: #ffcf0a;       /* the tuk-tuk's bodywork yellow */
-  --paint-shade: #d9a300;
-  --tar: #101310;         /* the black roof */
+  --cream: #f7f5e4;       /* the plate the wordmark is printed on */
+  --olive: #2a300c;       /* the crest outline */
 
-  --fog: #cfe0c4;
-  --fog-dim: #8b9a83;
-  --line: rgba(160, 220, 120, 0.14);
-  --line-strong: rgba(160, 220, 120, 0.3);
+  --paint: #e7bf32;       /* the tuk-tuk's bodywork, matched to the trench coat */
+  --paint-shade: #b8901c;
+  --tar: #141609;         /* the black roof */
 
-  --display: 'Goldman', 'Arial Black', system-ui, sans-serif;
+  --fog: #e4e3cd;
+  --fog-dim: #9a9d78;
+  --line: rgba(168, 201, 28, 0.16);
+  --line-strong: rgba(168, 201, 28, 0.34);
+
+  --display: 'Anton', 'Arial Narrow', 'Arial Black', system-ui, sans-serif;
   --body: 'Geist', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
 
   --gut: clamp(1.25rem, 4vw, 4.5rem);
@@ -65,8 +71,8 @@ body {
 body {
   /* the tint sits over everything, subtle enough to read as "not black" */
   background-image:
-    radial-gradient(120% 80% at 50% -10%, rgba(57, 255, 20, 0.07), transparent 60%),
-    radial-gradient(90% 60% at 100% 100%, rgba(242, 255, 0, 0.045), transparent 62%);
+    radial-gradient(120% 80% at 50% -10%, rgba(168, 201, 28, 0.09), transparent 60%),
+    radial-gradient(90% 60% at 100% 100%, rgba(233, 202, 26, 0.05), transparent 62%);
   background-attachment: fixed;
 }
 
@@ -78,7 +84,7 @@ section[id],
 
 ::selection {
   background: var(--acid);
-  color: #0a0d08;
+  color: #171a08;
 }
 
 a {
@@ -119,13 +125,15 @@ textarea {
 
 .sectionTitle {
   font-family: var(--display);
-  font-weight: 700;
   text-transform: uppercase;
-  line-height: 0.86;
-  letter-spacing: -0.035em;
+  line-height: 0.88;
+  /* Anton is already condensed — the logo sets its caps slightly open, not tight */
+  letter-spacing: 0.012em;
   font-size: clamp(2.6rem, 7.2vw, 6.5rem);
-  color: #f4fbec;
-  margin: 0;
+  color: var(--cream);
+  /* Anton hangs its caps high in the line box — without this the first line
+     rides up into whatever eyebrow sits above it */
+  margin: 0.14em 0 0;
 }
 
 .shell {
@@ -162,7 +170,7 @@ textarea {
   inset: 0;
   z-index: 55;
   pointer-events: none;
-  background: radial-gradient(125% 95% at 50% 45%, transparent 52%, rgba(3, 5, 3, 0.55) 100%);
+  background: radial-gradient(125% 95% at 50% 45%, transparent 52%, rgba(6, 7, 2, 0.55) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

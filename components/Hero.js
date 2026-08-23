@@ -5,9 +5,11 @@ export default function Hero() {
   return (
     <header className={styles.hero} id="top">
       <div className={styles.type} aria-hidden="true">
-        <span className={styles.line}>The Lemon</span>
-        <span className={styles.line}>
-          Lime <em>Crime</em>
+        <span className={styles.frame}>
+          <span className={styles.line}>The Lemon</span>
+          <span className={styles.line}>
+            Lime <em>Crime</em>
+          </span>
         </span>
       </div>
 

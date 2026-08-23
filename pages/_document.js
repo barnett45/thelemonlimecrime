@@ -8,10 +8,10 @@ class LemonLimeDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Geist:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@100..900&display=swap"
             rel="stylesheet"
           />
-          <meta name="theme-color" content="#090c08" />
+          <meta name="theme-color" content="#0a0c05" />
         </Head>
         <body>
           <Main />

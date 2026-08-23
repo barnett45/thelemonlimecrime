@@ -5,9 +5,9 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(90% 70% at 20% 10%, rgba(57, 255, 20, 0.06), transparent 58%),
-    radial-gradient(70% 60% at 85% 85%, rgba(242, 255, 0, 0.05), transparent 60%),
-    linear-gradient(180deg, #0b0f09 0%, #090c08 45%, #0c1009 100%);
+    radial-gradient(90% 70% at 20% 10%, rgba(189, 224, 67, 0.06), transparent 58%),
+    radial-gradient(70% 60% at 85% 85%, rgba(233, 202, 26, 0.05), transparent 60%),
+    linear-gradient(180deg, #0c0f06 0%, #0a0c05 45%, #0d1006 100%);
 }
 
 .plate {
@@ -52,8 +52,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(120, 200, 90, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 200, 90, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(168, 201, 28, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 201, 28, 0.055) 1px, transparent 1px);
   background-size: 88px 88px;
   mask-image: radial-gradient(80% 70% at 50% 45%, #000 20%, transparent 78%);
 }
