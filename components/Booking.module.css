@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(5rem, 13vh, 9rem) 0 clamp(5rem, 13vh, 9rem);
+  background:
+    radial-gradient(80% 60% at 12% 0%, rgba(57, 255, 20, 0.07), transparent 62%),
+    linear-gradient(180deg, #090c08 0%, #0c110a 100%);
+  border-top: 1px solid var(--line);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2.4rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.pitch {
+  position: sticky;
+  top: clamp(2rem, 12vh, 7rem);
+}
+
+.lede {
+  margin: 1.6rem 0 2.4rem;
+  max-width: 40ch;
+  color: var(--fog-dim);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  line-height: 1.7;
+}
+
+.specs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.86rem;
+}
+
+.specNo {
+  font-family: var(--display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--toxic);
+}
+
+.specVal {
+  font-family: var(--display);
+  color: #eaf4e0;
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.card {
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+  border: 1px solid rgba(160, 220, 120, 0.16);
+  border-radius: 4px;
+  background: rgba(14, 19, 12, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cardTitle {
+  font-family: var(--display);
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #eaf4e0;
+  margin: 0;
+}
+
+.ref {
+  font-family: var(--display);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--fog-dim);
+}
+
+.rows {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 960px) {
+  .split { grid-template-columns: 1fr; }
+  .pitch { position: static; }
+}
+
+@media (max-width: 620px) {
+  .pair { grid-template-columns: 1fr; }
+  .foot { flex-direction: column; align-items: stretch; }
+  .foot button { width: 100%; }
+}

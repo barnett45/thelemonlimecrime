@@ -1,24 +1,190 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* ============================================================
+   THE LEMON LIME CRIME — global tokens & base
+   ============================================================ */
+
+@property --boom {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+:root {
+  /* deep dark grey/black, tinted toxic green — never pure black */
+  --bg-0: #090c08;
+  --bg-1: #0d110b;
+  --bg-2: #141a11;
+  --bg-3: #1b2317;
+
+  --acid: #f2ff00;        /* piercing neon yellow */
+  --acid-dim: #c3cf12;
+  --toxic: #39ff14;       /* toxic glowing green */
+  --toxic-dim: #1f8f16;
+
+  --paint: #ffcf0a;       /* the tuk-tuk's bodywork yellow */
+  --paint-shade: #d9a300;
+  --tar: #101310;         /* the black roof */
+
+  --fog: #cfe0c4;
+  --fog-dim: #8b9a83;
+  --line: rgba(160, 220, 120, 0.14);
+  --line-strong: rgba(160, 220, 120, 0.3);
+
+  --display: 'Goldman', 'Arial Black', system-ui, sans-serif;
+  --body: 'Geist', ui-sans-serif, -apple-system, 'Segoe UI', sans-serif;
+
+  --gut: clamp(1.25rem, 4vw, 4.5rem);
+  --shell: 1500px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 * {
   box-sizing: border-box;
 }
 
-main {
-  padding: 2rem 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 60ch;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* keep the clip here and nowhere else: the same rule on <body> turns the body
+     into its own scroll container and breaks the sticky getaway sequence */
+  overflow-x: hidden;
 }
 
-hr {
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--fog);
+  font-family: var(--body);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+body {
+  /* the tint sits over everything, subtle enough to read as "not black" */
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(57, 255, 20, 0.07), transparent 60%),
+    radial-gradient(90% 60% at 100% 100%, rgba(242, 255, 0, 0.045), transparent 62%);
+  background-attachment: fixed;
+}
+
+/* the nav is fixed, so anchored sections need to stop clear of it */
+section[id],
+[id]:target {
+  scroll-margin-top: clamp(4.5rem, 9vh, 6rem);
+}
+
+::selection {
+  background: var(--acid);
+  color: #0a0d08;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--toxic);
+  outline-offset: 3px;
+}
+
+/* ---------- shared type ---------- */
+
+.eyebrow {
+  font-family: var(--display);
+  font-size: clamp(0.62rem, 0.9vw, 0.78rem);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--toxic);
+  margin: 0;
+}
+
+.sectionTitle {
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.6rem, 7.2vw, 6.5rem);
+  color: #f4fbec;
+  margin: 0;
+}
+
+.shell {
   width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+/* ---------- fixed grain + scanline atmosphere ---------- */
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainDrift 6s steps(6) infinite;
+  will-change: transform;
+}
+
+@keyframes grainDrift {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-3%, 2%, 0); }
+  40% { transform: translate3d(2%, -3%, 0); }
+  60% { transform: translate3d(-2%, -2%, 0); }
+  80% { transform: translate3d(3%, 1%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  pointer-events: none;
+  background: radial-gradient(125% 95% at 50% 45%, transparent 52%, rgba(3, 5, 3, 0.55) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

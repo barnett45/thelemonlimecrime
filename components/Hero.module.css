@@ -1,0 +1,271 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh;
+  min-height: 620px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- layer 1: the name, sitting behind the vehicle ---------- */
+
+.type {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 17vh;
+  gap: 0.02em;
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.76;
+  letter-spacing: -0.055em;
+  font-size: clamp(3.1rem, 12.5vw, 12.5rem);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.line {
+  background: linear-gradient(178deg, #f6ffe4 0%, #b9c9a6 38%, #4a5741 78%, #2b3327 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.7));
+  /* the from-state lives in the keyframes, so the copy is still legible in any
+     context that strips animations */
+  animation: liftIn 1.5s var(--ease) both;
+}
+
+.line:nth-child(2) {
+  animation-delay: 0.12s;
+  letter-spacing: -0.062em;
+}
+
+.line em {
+  font-style: normal;
+  background: linear-gradient(178deg, #f2ff00 0%, #b7c400 60%, #4c5300 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* occlusion: the letters visibly darken behind the bodywork */
+.occlude {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 42%;
+  translate: -50% 0;
+  width: min(64vw, 900px);
+  aspect-ratio: 2.7 / 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(4, 6, 4, 0.78), rgba(4, 6, 4, 0) 76%);
+  pointer-events: none;
+}
+
+/* ---------- layer 2: the vehicle ---------- */
+
+.rig {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 38%;
+  translate: -50% 0;
+  width: min(58vw, 820px, 92vh);
+  filter: drop-shadow(0 40px 70px rgba(0, 0, 0, 0.72));
+  /* the drive-in, then a permanent idle. one list, or the second wins outright */
+  animation: rollIn 1.9s var(--ease) 0.22s both,
+    bob 7.5s ease-in-out 2.12s infinite;
+  will-change: transform;
+  --boom: 0;
+}
+
+/* ---------- layer 3: foreground haze ---------- */
+
+.haze {
+  position: absolute;
+  z-index: 4;
+  inset: auto 0 0 0;
+  height: 30%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(9, 12, 8, 0) 0%, rgba(9, 12, 8, 0.72) 58%, rgba(9, 12, 8, 0.95) 100%);
+}
+
+/* ---------- layer 4: chrome ---------- */
+
+.cue {
+  position: absolute;
+  z-index: 5;
+  left: var(--gut);
+  bottom: clamp(1.6rem, 5vh, 3.2rem);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--display);
+  font-size: 0.66rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--fog-dim);
+}
+
+.cueRail {
+  position: relative;
+  width: 74px;
+  height: 1px;
+  background: rgba(160, 220, 120, 0.24);
+  overflow: hidden;
+}
+
+.cueRail::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--toxic);
+  transform-origin: left;
+  animation: sweep 2.4s var(--ease-io) infinite;
+}
+
+.cta {
+  position: absolute;
+  z-index: 6;
+  right: var(--gut);
+  bottom: clamp(1.6rem, 5vh, 3.2rem);
+  width: min(360px, 78vw);
+  padding: 1.5rem 1.5rem 1.3rem;
+  border: 1px solid rgba(200, 255, 160, 0.16);
+  border-radius: 4px;
+  background: rgba(18, 24, 15, 0.42);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: liftIn 1.1s var(--ease) 0.95s both;
+}
+
+.ctaTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--toxic);
+  margin: 0 0 0.7rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--toxic);
+  box-shadow: 0 0 10px var(--toxic);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.ctaTitle {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #f4fbec;
+  margin: 0 0 0.55rem;
+}
+
+.ctaCopy {
+  margin: 0 0 1.15rem;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: var(--fog-dim);
+}
+
+.book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: none;
+  border-radius: 2px;
+  background: var(--acid);
+  color: #0b0e07;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(242, 255, 0, 0.5);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+}
+
+.book:hover {
+  transform: translateY(-2px);
+  background: #fbff5c;
+  box-shadow: 0 12px 34px rgba(242, 255, 0, 0.28);
+}
+
+.book:active {
+  transform: translateY(0);
+}
+
+.book svg {
+  transition: transform 0.35s var(--ease);
+}
+
+.book:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes liftIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rollIn {
+  from { opacity: 0; transform: translate3d(3%, 34px, 0) scale(0.965); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes sweep {
+  0% { transform: scaleX(0); }
+  55% { transform: scaleX(1); }
+  100% { transform: scaleX(1) translateX(100%); }
+}
+
+@media (max-width: 900px) {
+  .rig { width: min(86vw, 86vh); top: 34%; }
+  .type { padding-top: 13vh; }
+}
+
+@media (max-width: 720px) {
+  .type { line-height: 0.82; padding-top: 11vh; }
+  .cue { display: none; }
+  .cta {
+    left: var(--gut);
+    right: var(--gut);
+    width: auto;
+  }
+  .rig { width: min(96vw, 92vh); top: 19%; }
+  .occlude { top: 20%; width: 96vw; }
+}

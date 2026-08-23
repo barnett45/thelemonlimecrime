@@ -1,0 +1,183 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(5rem, 13vh, 9rem) 0 clamp(5rem, 12vh, 8rem);
+  background: linear-gradient(180deg, #0a0f08 0%, #0b100a 55%, #090c08 100%);
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-bottom: clamp(2.4rem, 6vh, 4rem);
+}
+
+.blurb {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--fog-dim);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.68;
+}
+
+.blurb strong {
+  color: var(--acid);
+  font-weight: 500;
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--toxic), rgba(57, 255, 20, 0) 62%);
+  margin: 1.2rem 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.1vw, 1.1rem);
+}
+
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(160, 220, 120, 0.1);
+  background: #070a06;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: border-color 0.5s var(--ease);
+}
+
+.on .tile {
+  animation: tileIn 0.9s var(--ease) both;
+}
+
+.tile:nth-child(1) { animation-delay: 0.02s; }
+.tile:nth-child(2) { animation-delay: 0.08s; }
+.tile:nth-child(3) { animation-delay: 0.14s; }
+.tile:nth-child(4) { animation-delay: 0.2s; }
+.tile:nth-child(5) { animation-delay: 0.26s; }
+.tile:nth-child(6) { animation-delay: 0.32s; }
+.tile:nth-child(7) { animation-delay: 0.38s; }
+.tile:nth-child(8) { animation-delay: 0.44s; }
+.tile:nth-child(9) { animation-delay: 0.5s; }
+
+@keyframes tileIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tile:hover,
+.tile:focus-visible {
+  border-color: rgba(57, 255, 20, 0.55);
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.9s var(--ease), filter 0.9s var(--ease);
+  transform: scale(1);
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tile:hover .art,
+.tile:focus-visible .art {
+  transform: scale(1.075);
+  filter: saturate(1.15) contrast(1.12);
+}
+
+.grainy {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 6, 4, 0.1) 0%, rgba(4, 6, 4, 0.15) 40%, rgba(4, 6, 4, 0.9) 100%);
+  transition: opacity 0.6s var(--ease);
+}
+
+.tile:hover .shade,
+.tile:focus-visible .shade {
+  opacity: 0.82;
+}
+
+.meta {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(0.9rem, 1.6vw, 1.35rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.slug {
+  font-family: var(--display);
+  font-size: 0.55rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--toxic);
+}
+
+.name {
+  font-family: var(--display);
+  font-size: clamp(0.95rem, 1.5vw, 1.28rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #f3faea;
+  margin: 0;
+}
+
+.role {
+  font-size: 0.76rem;
+  color: var(--fog-dim);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.55s var(--ease), opacity 0.4s var(--ease), margin 0.55s var(--ease);
+}
+
+.tile:hover .role,
+.tile:focus-visible .role {
+  max-height: 4rem;
+  opacity: 1;
+  margin-top: 0.15rem;
+}
+
+.corner {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.8rem;
+  font-family: var(--display);
+  font-size: 0.54rem;
+  letter-spacing: 0.24em;
+  color: rgba(230, 245, 220, 0.5);
+  padding: 0.24rem 0.45rem;
+  border: 1px solid rgba(200, 240, 170, 0.2);
+  background: rgba(6, 9, 5, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 900px) {
+  .head { grid-template-columns: 1fr; align-items: start; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 540px) {
+  .grid { grid-template-columns: 1fr; }
+}
