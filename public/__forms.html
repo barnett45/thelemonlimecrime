@@ -1,0 +1,22 @@
+<!--
+  This file exists purely so that Netlify's build bot can detect the forms used
+  in this app at deploy time. Next.js pages are rendered by React, so the build
+  bot cannot see the markup in components/FeedbackForm.js.
+
+  Every form here must mirror the `name` and the field names of its React
+  counterpart. The React form submits to this path via fetch().
+-->
+<html>
+  <head>
+    <title>Netlify form detection</title>
+  </head>
+  <body>
+    <form name="feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="feedback" />
+      <input name="bot-field" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <textarea name="feedback"></textarea>
+    </form>
+  </body>
+</html>
