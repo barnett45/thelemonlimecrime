@@ -1,0 +1,45 @@
+.wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 10rem 0 6rem;
+}
+
+.title {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: clamp(2.8rem, 9vw, 8rem);
+  line-height: 0.84;
+  letter-spacing: 0.01em;
+  margin: 1rem 0 1.6rem;
+  background: linear-gradient(178deg, #f7f5e4, #6d7a5f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.copy {
+  max-width: 46ch;
+  color: var(--fog-dim);
+  line-height: 1.7;
+  margin: 0 0 2.4rem;
+}
+
+.back {
+  display: inline-block;
+  padding: 0.9rem 1.6rem;
+  background: var(--acid);
+  color: #171a08;
+  font-family: var(--display);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(233, 202, 26, 0.22);
+}

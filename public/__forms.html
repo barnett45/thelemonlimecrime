@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form registry</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!--
+      Static skeleton read by Netlify's build bot. The React forms are rendered
+      by Next.js and would never be detected at deploy time without this file,
+      and their AJAX POSTs are sent here rather than to "/" so they reach the
+      form pipeline instead of the SSR handler.
+    -->
+    <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="booking" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <input name="date" type="date" />
+      <input name="guests" />
+      <input name="location" />
+      <textarea name="notes"></textarea>
+    </form>
+
+    <form name="tip-off" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="tip-off" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

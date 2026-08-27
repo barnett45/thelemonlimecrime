@@ -1,0 +1,75 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 70% at 20% 10%, rgba(189, 224, 67, 0.06), transparent 58%),
+    radial-gradient(70% 60% at 85% 85%, rgba(233, 202, 26, 0.05), transparent 60%),
+    linear-gradient(180deg, #0c0f06 0%, #0a0c05 45%, #0d1006 100%);
+}
+
+.plate {
+  position: absolute;
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  object-fit: cover;
+  opacity: 0.34;
+  filter: saturate(0.55) contrast(1.1) brightness(0.55) hue-rotate(-12deg);
+}
+
+/* the understudy: the vehicle slowly coming apart and going back together */
+.rig {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(190vh, 172vw);
+  translate: -50% -50%;
+  opacity: 0.075;
+  filter: blur(3px) saturate(0.7);
+  animation: assemble 26s var(--ease-io) infinite, sway 44s ease-in-out infinite;
+  will-change: --boom, transform;
+}
+
+@keyframes assemble {
+  0%,
+  8% { --boom: 0; }
+  46%,
+  58% { --boom: 1; }
+  96%,
+  100% { --boom: 0; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: translate3d(-2%, 1%, 0) scale(1.02) rotate(-0.6deg); }
+  50% { transform: translate3d(2%, -1.5%, 0) scale(1.06) rotate(0.6deg); }
+}
+
+/* schematic reticle that reads as an engineering exploded-view */
+.reticle {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(168, 201, 28, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 201, 28, 0.055) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(80% 70% at 50% 45%, #000 20%, transparent 78%);
+}
+
+.scan {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.28) 0 1px,
+    transparent 1px 4px
+  );
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rig { animation: none; --boom: 0.35; }
+}
